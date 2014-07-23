@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" ng-app="masterMapApp">
+<head>
+    <meta charset="utf-8">
+    <title>Master Map</title>
+    <!-- need to change these to local -->
+    <link href="////cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.css" rel="stylesheet" type="text/css"/>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css"
+          rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body ng-controller="MainCtrl" class="zipcode-{{applied()}}">
+<!-- View placeholder -->
+<div ng-view></div>
+<div class="loading-indicator">
+    <div class='text'> Loading ...</div>
+</div>
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+-->
+<script src="lib/angular/angular.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.4.0/ui-bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.4.0/ui-bootstrap-tpls.min.js"></script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&sensor=false&key=AIzaSyCOUo69jud8ZVGG4sa7ijZ3y6XL_XNmkXg"></script>-->
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&sensor=false"></script>
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/utils.js"></script>
+</body>
+</html>
