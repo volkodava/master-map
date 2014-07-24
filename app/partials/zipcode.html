@@ -1,16 +1,19 @@
 <div id="enterZipCodeView">
     <div class="modal">
         <div class="modal-header">
-            <h3>Enter your Zip code</h3>
+            <h3>Enter your Address</h3>
         </div>
         <div class="modal-body">
             <form class="form-inline" name="zipCodeFrm" novalidate>
-                <input type="text" name="zip" placeholder="Enter your zip code" required ng-pattern="/^\d{5,6}$/" ng-model="zipCode">
-                <input type="submit" class="btn btn-primary" value="GO" ng-disabled="zipCodeFrm.$invalid" ng-click="sendZip(zipCode)">
+                <input type="text" name="address" placeholder="Enter your address" required ng-pattern="/^.+$/" ng-autocomplete="result" details="details" ng-model="result" />
+                <input type="submit" class="btn btn-primary" value="GO" ng-disabled="zipCodeFrm.$invalid || !(details && details.geometry && details.geometry.location)" ng-click="sendAddress(details)">
             </form>
+            <p ng-show="result">result: {{result | json}}</p>
+            <p ng-show="details && details.geometry && details.geometry.location">location: {{details.geometry.location}}</p>
+            <p ng-show="details">details: {{details | json}}</p>
         </div>
         <div class="modal-footer">
-            <p class="text-left text-success" ng-show="!zipCodeFrm.$invalid" ng-cloak>Zip code is valid</p>   
+            <p class="text-left text-success" ng-show="!zipCodeFrm.$invalid && details && details.geometry && details.geometry.location" ng-cloak>Address is valid</p>
         </div>
     </div>
     <div class="modal-backdrop light fade in"></div>

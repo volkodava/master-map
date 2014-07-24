@@ -3,6 +3,7 @@
 "use strict";
 
 var masterMapApp = angular.module("masterMapApp", [
+    "ngAutocomplete",
     "masterMapApp.services",
     "masterMapApp.controllers",
     "masterMapApp.filters",

@@ -16,7 +16,10 @@ angular.module("masterMapApp.controllers", [ ])
      */
     .controller("ZipCodeFrmCtrl", function ($scope, $location, $routeParams) {
         var placeurl = $routeParams.place || "";
-        $scope.sendZip = function (zipcode) {
+
+        $scope.sendAddress = function (details) {
+            console.log("Address set: " + details.geometry.location);
+            var zipcode = '02232';
             $location.path("/search/" + zipcode + "/" + placeurl);
         };
     })
@@ -205,12 +208,6 @@ angular.module("masterMapApp.controllers", [ ])
         $scope.applied = function () {
             return !!$routeParams.zipcode;
         };
-        // some Google analytics
-        $scope.$on("$viewContentLoaded", function (event) {
-            $window.ga("send", "pageview", {
-                "page": $location.path()
-            });
-        });
     })
 
     // Just shows something about me and how I did this.
